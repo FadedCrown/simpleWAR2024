@@ -10,7 +10,7 @@ bsr<-function(spd,pa){(3*(spd-50)/10)*pa/675}#rate spd 20-80
 uzr<-function(glove,pa){(6*(glove-50)/10)*pa/625}#rate glove 20-80
 runsPerWin <- 9.25
 posWAR <-function(wOBA, pa, pos, glove, spd){
-  wRAA + 
+  wRAA(wOBA,pa) + 
            if(pos=="DH") 0 else uzr(glove,pa) + 
            bsr(spd,pa) + 
            position[position$positions==pos,2]*pa/675 +
