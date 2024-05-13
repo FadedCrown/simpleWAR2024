@@ -35,14 +35,11 @@ shinyServer(function(input, output) {
     + pitchWAR(input$LG,input$Role,input$IP, input$ERA)
     ,1)
   })
-    #WAR(.363,.5,540,"SS",30,50))
+    #WAR(.363,540,"SS",30,50))
     
   # Show the value
   output$answer <- renderText({
     result()  
     })
 
-    output$answer <- renderText({
-    wRAA(wOBA, pa)()  
-    })
 })
