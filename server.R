@@ -1,7 +1,7 @@
 library(shiny)
 lgNP_wOBA <-.310
-wRC <- function(wOBA){100 * (wOBA/lgNP_wOBA - 1)}
-hitting <- function(wRC, pa) {(wRC-100)*.1273*pa/100}
+wOBA_scale <-1.273
+wRAA <- function(wOBA){((wOBA-lgNP_wOBA)/wOBA_scale)*pa}
 replacement = 17.5/600
 positions<-c("C","1B","2B","3B","SS", "LF","CF","RF","DH","P")
 posadj<-c(12.5,-12.5,2.5,2.5,7.5,-7.5,2.5,-7.5,-17.5,65)
@@ -10,7 +10,7 @@ bsr<-function(spd,pa){(3*(spd-50)/10)*pa/675}#rate spd 20-80
 uzr<-function(glove,pa){(6*(glove-50)/10)*pa/625}#rate glove 20-80
 runsPerWin <- 9.25
 posWAR <-function(wOBA, pa, pos, glove, spd){
-  (hitting(wRC(wOBA),pa) + 
+  (hitting(wRAA) + 
            if(pos=="DH") 0 else uzr(glove,pa) + 
            bsr(spd,pa) + 
            position[position$positions==pos,2]*pa/675 +
