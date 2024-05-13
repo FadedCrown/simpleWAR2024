@@ -36,7 +36,10 @@ shinyServer(function(input, output) {
     ,1)
   })
     #WAR(.363,.5,540,"SS",30,50))
-  
+
+  output$answer <- renderText({
+    wRAA()
+    
   # Show the value
   output$answer <- renderText({
     result()  
