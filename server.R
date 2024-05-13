@@ -2,7 +2,7 @@ library(shiny)
 lgNP_wOBA <-.310
 wOBA_scale <-1.273
 wRAA<-function(wOBA,pa){(((wOBA-lgNP_wOBA)/wOBA_scale)*pa)}
-replacement = 17.5/600
+replacement = 0.291666666666
 positions<-c("C","1B","2B","3B","SS", "LF","CF","RF","DH","P")
 posadj<-c(12.5,-12.5,2.5,2.5,7.5,-7.5,2.5,-7.5,-17.5,65)
 position<-data.frame(positions,posadj)
