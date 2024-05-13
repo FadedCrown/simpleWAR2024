@@ -1,8 +1,7 @@
 library(shiny)
-lgNP_OBP <-.32
-lgNP_SLG <-.4
-OPS_plus <- function(obp, slg){100 * (obp/lgNP_OBP + slg/lgNP_SLG - 1)}
-hitting <- function(ops, pa) {(ops-100)*.1123*pa/100}
+lgNP_wOBA <-.310
+wRC+ <- function(wOBA){100 * (wOBA/lgNP_wOBA - 1)}
+hitting <- function(wOBA, pa) {(wOBA-100)*.1273*pa/100}
 replacement = 17.5/600
 positions<-c("C","1B","2B","3B","SS", "LF","CF","RF","DH","P")
 posadj<-c(12.5,-12.5,2.5,2.5,7.5,-7.5,2.5,-7.5,-17.5,65)
@@ -11,7 +10,7 @@ bsr<-function(spd,pa){(3*(spd-50)/10)*pa/675}#rate spd 20-80
 uzr<-function(glove,pa){(6*(glove-50)/10)*pa/625}#rate glove 20-80
 runsPerWin <- 9.25
 posWAR <-function(obp,slg, pa, pos, glove, spd){
-  (hitting(OPS_plus(obp,slg),pa) + 
+  (hitting(wRC+(wOBA),pa) + 
            if(pos=="DH") 0 else uzr(glove,pa) + 
            bsr(spd,pa) + 
            position[position$positions==pos,2]*pa/675 +
@@ -32,7 +31,7 @@ pitchWAR <- function(lg, role, ip, era){
 # Define server logic for slider examples
 shinyServer(function(input, output) {
     result <- reactive({
-    round(posWAR(input$OBP,input$SLG,input$PA,input$Pos,input$UZR, input$BSR) 
+    round(posWAR(input$wOBA,input$PA,input$Pos,input$UZR, input$BSR) 
     + pitchWAR(input$LG,input$Role,input$IP, input$ERA)
     ,1)
   })
