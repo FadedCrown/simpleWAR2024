@@ -31,7 +31,7 @@ pitchWAR <- function(lg, role, ip, era){
 # Define server logic for slider examples
 shinyServer(function(input, output) {
     result <- reactive({
-    round(posWAR(input$wOBA,input$PA,input$Pos,input$UZR, input$BSR) 
+    round(posWAR(input$wRAA,input$PA,input$Pos,input$UZR, input$BSR) 
     + pitchWAR(input$LG,input$Role,input$IP, input$ERA)
     ,1)
   })
