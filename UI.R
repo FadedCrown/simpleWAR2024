@@ -11,12 +11,8 @@ shinyUI(fluidPage(
     sidebarPanel(
    h4("Batting, Fielding & Baserunning WAR"),
       # Decimal interval 
-    sliderInput("OBP", "OBP:", 
+    sliderInput("wOBA", "wOBA:", 
                   min = 0, max = .5, value = 0.32, step=.001),
-
-      # Decimal interval 
-      sliderInput("SLG", "SLG:", 
-                  min = 0, max = .8, value = 0.4, step=.001),
       
       # Simple integer interval
       sliderInput("PA", "Plate Appearances:", 
@@ -57,7 +53,7 @@ shinyUI(fluidPage(
     # Show a text for the computed answer
     mainPanel(
       br(),br(),br(),br(),br(),br(),
-      p(em("Estimate OBP & SLG in a park-neutral environment.")),
+      p(em("Estimate wOBA in a park-neutral environment.")),
       br(),br(),
       h4("Total WAR:", align="center"),
       h1(textOutput("answer"), align="center"),
