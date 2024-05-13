@@ -13,8 +13,8 @@ posWAR <-function(wOBA, pa, pos, glove, spd){
   wRAA(wOBA,pa) +
     if(pos=="DH") 0 else 0 +
     0 +
-    position[position$positions==pos,2] +
-    (pa * replacement)/runsPerWin}
+    position[position$positions==pos,2] + 0
+    }
 NLReplaceStarter <- 4.79
 ALReplaceStarter <- 5.21
 NLReplaceRelief <- 3.98
