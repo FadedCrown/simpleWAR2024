@@ -12,7 +12,7 @@ shinyUI(fluidPage(
    h4("Batting, Fielding & Baserunning WAR"),
       # Decimal interval 
     sliderInput("wOBA", "wOBA:", 
-                  min = 0, max = .5, value = 0.32, step=.001),
+                  min = 0, max = .5, value = 0.31, step=.001),
       
       # Simple integer interval
       sliderInput("PA", "Plate Appearances:", 
