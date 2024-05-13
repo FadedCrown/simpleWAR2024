@@ -57,6 +57,8 @@ shinyUI(fluidPage(
       br(),br(),
       h4("Total WAR:", align="center"),
       h1(textOutput("answer"), align="center"),
+      h4("wRAA", align="center"),
+      h1(textOutput("wRAA"), align="center"),
       p(strong("Over a full season, an average player gets about 2 WAR,"), align="center"),
       p(strong("a good player 4, and a great player 6 or more."), align="center"),
       
