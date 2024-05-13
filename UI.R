@@ -12,7 +12,7 @@ shinyUI(fluidPage(
    h4("Batting, Fielding & Baserunning WAR"),
       # Decimal interval 
     sliderInput("wOBA", "wOBA:", 
-                  min = 0, max = .5, value = 0.31, step=.001),
+                  min = 0, max = 1.0, value = 0.31, step=.001),
       
       # Simple integer interval
       sliderInput("PA", "Plate Appearances:", 
@@ -57,8 +57,6 @@ shinyUI(fluidPage(
       br(),br(),
       h4("Total WAR:", align="center"),
       h1(textOutput("answer"), align="center"),
-      h4("wRAA:", align="center"),
-      h1(textOutput("wRAA"), align="center"),
       p(strong("Over a full season, an average player gets about 2 WAR,"), align="center"),
       p(strong("a good player 4, and a great player 6 or more."), align="center"),
       
@@ -72,7 +70,6 @@ shinyUI(fluidPage(
       br(),br(),br(),br(),br(),br(),br(),br(),br(),br(),
       p(em("Estimate ERA in a park-neutral environment with average luck & supporting defense.")),
       br(),p("This tool is calibrated to the environment of recent Major League Baseball"),
-      p("© Cody Stumpo, 2014")
     )
   )
 
