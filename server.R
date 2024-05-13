@@ -10,9 +10,9 @@ bsr<-function(spd,pa){(3*(spd-50)/10)*pa/675}#rate spd 20-80
 uzr<-function(glove,pa){(6*(glove-50)/10)*pa/625}#rate glove 20-80
 runsPerWin <- 9.25
 posWAR <-function(wOBA, pa, pos, glove, spd){
-  0 +
-    if(pos=="DH") 0 else uzr(glove,pa) +
-    bsr(spd,pa) +
+  wRAA(wOBA,pa) +
+    if(pos=="DH") 0 else 0 +
+    0 +
     position[position$positions==pos,2]*pa/675 +
     (pa * replacement)/runsPerWin}
 NLReplaceStarter <- 4.79
