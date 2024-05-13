@@ -39,6 +39,7 @@ shinyServer(function(input, output) {
 
   output$answer <- renderText({
     wRAA()
+    })
     
   # Show the value
   output$answer <- renderText({
