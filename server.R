@@ -1,7 +1,7 @@
 library(shiny)
 lgNP_wOBA <-.310
 wRC+ <- function(wOBA){100 * (wOBA/lgNP_wOBA - 1)}
-hitting <- function(wOBA, pa) {(wOBA-100)*.1273*pa/100}
+hitting <- function(wRC+, pa) {(wRC-100)*.1273*pa/100}
 replacement = 17.5/600
 positions<-c("C","1B","2B","3B","SS", "LF","CF","RF","DH","P")
 posadj<-c(12.5,-12.5,2.5,2.5,7.5,-7.5,2.5,-7.5,-17.5,65)
