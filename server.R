@@ -41,8 +41,4 @@ shinyServer(function(input, output) {
   output$answer <- renderText({
     result()  
     })
-
-    output$answer <- renderText({
-    wRAA()  
-    })
 })
